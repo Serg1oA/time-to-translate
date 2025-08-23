@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-to-Translate</title>
+
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <h1>Time-to-Translate</h1>
+    <h2>Analyze Your Text or Document</h2>
+
+    <form id="analysisForm" method="POST" action="/analyze" enctype="multipart/form-data">
+        <div>
+            <label for="textInput">Enter Text:</label><br>
+            <textarea id="textInput" name="text" rows="10" cols="50"></textarea>
+        </div>
+
+        <div>
+            <label for="fileInput">Upload Document:</label>
+            <input type="file" id="fileInput" name="fileInput">
+        </div>
+
+        <button type="button" onclick="analyzeDocument()">Analyze with AI</button>
+    </form>
+
+    <h2>Results</h2>
+    <div id="results">
+        <p>Word Count: <span id="wordCount"></span></p>
+        <p>Sentence Count: <span id="sentenceCount"></span></p>
+        <p>Complexity: <span id="complexity"></span></p>
+
+        <h3>Translation Times (Estimated Hours):</h3>
+        <ul id="translationTimes"></ul>
+
+        <p id="errorMessage"></p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

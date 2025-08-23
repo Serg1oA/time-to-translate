@@ -1,2 +1,5 @@
 Flask
 gunicorn
+spacy
+PyPDF2
+docx2txt
